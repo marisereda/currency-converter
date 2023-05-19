@@ -26,6 +26,8 @@ export class ConverterComponent implements OnInit {
     this.handleCurrencyChange(true);
   }
 
+  // ----------------------------------------------------------------
+
   handleCurrencySwap() {
     [this.base.currency, this.target.currency] = [
       this.target.currency,
@@ -34,9 +36,13 @@ export class ConverterComponent implements OnInit {
     this.handleCurrencyChange(true);
   }
 
+  // ----------------------------------------------------------------
+
   handleAmountChange(isBaseChanged: boolean) {
     this.recalculateAmount(isBaseChanged);
   }
+
+  // ----------------------------------------------------------------
 
   handleCurrencyChange(isBaseChanged: boolean) {
     if (this.base.currency === this.target.currency) {
@@ -54,6 +60,8 @@ export class ConverterComponent implements OnInit {
         this.recalculateAmount(isBaseChanged);
       });
   }
+
+  // ----------------------------------------------------------------
 
   recalculateAmount(isBaseChanged: boolean) {
     if (!this.rate) {

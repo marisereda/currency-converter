@@ -16,6 +16,8 @@ export class ExchangeService {
     this.apiUrl = environment.apiUrl;
   }
 
+  // ----------------------------------------------------------------
+
   getRate(base: Currency, target: Currency) {
     if (this.ratesCache[base + target]) {
       return of(this.ratesCache[base + target]);
@@ -25,6 +27,8 @@ export class ExchangeService {
       catchError(this.errorHandler.bind(this))
     );
   }
+
+  // ----------------------------------------------------------------
 
   private errorHandler(err: HttpErrorResponse) {
     this.errorService.handle(err.message);

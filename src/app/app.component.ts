@@ -51,9 +51,4 @@ export class AppComponent implements OnInit {
         })
     );
   }
-
-  getRate(currency: Currency) {
-    const rate = this.rates.find((rate) => rate.base_code === currency);
-    return rate?.conversion_rate;
-  }
 }
