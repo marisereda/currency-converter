@@ -1,0 +1,40 @@
+<header
+  class="py-4 h-[400px] bg-blue-700 text-white bg-[url('/assets/header-bg.svg')]"
+>
+  <div class="max-w-[1200px] px-10 flex justify-between items-center mx-auto">
+    <h1 class="text-3xl">
+      <fa-icon [icon]="logoIcon" size="xl" class="pr-1" /> Currency Converter
+    </h1>
+    <div class="flex gap-6">
+      <p *ngFor="let rate of rates" class="text-xl font-semibold">
+        {{ rate.base_code }} {{ rate.conversion_rate }}
+      </p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="max-w-[1200px] px-10 mx-auto">
+    <div class="relative">
+      <app-converter class="absolute w-full left-0 top-0 -translate-y-1/2" />
+    </div>
+  </div>
+</main>
+<footer class="flex py-10 min-h-[400px] bg-neutral-50 grow">
+  <div class="max-w-[1200px] px-10 mx-auto mt-auto">
+    <ul class="flex gap-6">
+      <li *ngFor="let link of links">
+        <a
+          [href]="link.href"
+          target="_blank"
+          class="text-neutral-400 hover:text-neutral-500 p-2"
+        >
+          <span class="sr-only">{{ link.label }}</span>
+          <fa-icon [icon]="link.icon" size="xl" />
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+<app-error *ngIf="errorService.error$ | async" />

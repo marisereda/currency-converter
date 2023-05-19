@@ -1,0 +1,82 @@
+<div
+  class="bg-white flex flex-col lg:items-center gap-12 px-16 py-20 mx-auto max-w shadow-lg rounded-2xl lg:flex-row"
+>
+  <div class="flex gap-6 items-center lg:w-2/3">
+    <div class="flex flex-col gap-10 grow">
+      <div class="flex gap-6">
+        <label class="inline-flex flex-col gap-2 w-2/3 text-xl">
+          <span class="font-semibold">Amount</span>
+          <input
+            class="py-3 px-4 border rounded-lg w-full focus:outline-blue-500/50"
+            type="number"
+            placeholder="100.00"
+            maxlength="10"
+            [(ngModel)]="base.amount"
+            (input)="handleAmountChange(true)"
+          />
+        </label>
+        <label class="inline-flex flex-col gap-2 w-1/3 text-xl">
+          <span class="font-semibold">From</span>
+          <select
+            class="border py-3 px-4 rounded-lg w-full focus:outline-blue-500/50"
+            [(ngModel)]="base.currency"
+            (change)="handleCurrencyChange(true)"
+          >
+            <option *ngFor="let currency of currencies" [value]="currency">
+              {{ currency }}
+            </option>
+          </select>
+        </label>
+      </div>
+
+      <div class="flex">
+        <label class="inline-flex flex-col gap-2 mr-8 w-2/3 text-xl">
+          <span class="font-semibold">Amount</span>
+          <input
+            class="py-3 px-4 border rounded-lg w-full focus:outline-blue-500/50"
+            type="number"
+            placeholder="100.00"
+            maxlength="10"
+            [(ngModel)]="target.amount"
+            (input)="handleAmountChange(false)"
+          />
+        </label>
+        <label class="inline-flex flex-col gap-2 w-1/3 text-xl">
+          <span class="font-semibold">To</span>
+          <select
+            class="border py-3 px-4 rounded-lg w-full focus:outline-blue-500/50"
+            [(ngModel)]="target.currency"
+            (change)="handleCurrencyChange(false)"
+          >
+            <option *ngFor="let currency of currencies" [value]="currency">
+              {{ currency }}
+            </option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <button
+      class="p-4 bg-blue-500 hover:bg-blue-600 shadow active:bg-blue-500 text-white rounded-full"
+      (click)="handleCurrencySwap()"
+    >
+      <fa-icon [fixedWidth]="true" size="lg" [icon]="faArrowsRotate" />
+    </button>
+  </div>
+
+  <div class="flex flex-col gap-4 lg:w-1/3">
+    <div class="flex items-center lg:items-start lg:flex-col gap-2">
+      <p *ngIf="base.amount" class="text-xl font-semibold">
+        {{ base.amount }} {{ base.currency }} =
+      </p>
+      <p *ngIf="target.amount" class="text-3xl font-bold">
+        {{ target.amount }} {{ target.currency }}
+      </p>
+    </div>
+    <p *ngIf="rate">
+      <span class="text-lg bg-neutral-100 inline-block px-2 py-1 rounded">
+        1 {{ base.currency }} = {{ rate }} {{ target.currency }}
+      </span>
+    </p>
+  </div>
+</div>
