@@ -1,0 +1,9 @@
+<div
+  class="fixed bottom-6 left-1/2 -translate-x-1/2 p-6 text-center min-w-[250px] rounded-lg shadow-md text-white bg-red-500"
+>
+  <p class="text-lg font-semibold">Oops! We have a little problem.</p>
+  <p>Please, wait a few minutes and try again later.</p>
+  <button class="absolute top-2 right-2" (click)="this.errorService.clear()">
+    <fa-icon [icon]="closeIcon" size="lg" />
+  </button>
+</div>
