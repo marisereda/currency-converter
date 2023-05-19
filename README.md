@@ -1,27 +1,35 @@
-# CurrencyConverter
+# Currency Converter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+## Description
 
-## Development server
+An online currency converter is a tool that uses up-to-date exchange rates to convert one currency into another. Users input a specific amount of money in one currency, select the desired currency to convert to, and the tool displays the equivalent monetary value in the other currency. This tool is commonly used for money transfers, international business transactions, and travel planning.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Technology stack
 
-## Code scaffolding
+- Angular
+- Tailwind
+- [ExchangeRate-API](https://exchangerate-api.com/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Live application
 
-## Build
+[Currency converter](https://exchangerate-api.com/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Run locally
 
-## Running unit tests
+Clone the project
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+  git clone https://github.com/marisereda/currency-converter.git
+```
 
-## Running end-to-end tests
+Install dependencies
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+  npm install
+```
 
-## Further help
+Start the development server
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+  npm start
+```
